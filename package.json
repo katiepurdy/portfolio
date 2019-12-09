@@ -1,0 +1,23 @@
+{
+  "name": "katiepurdy-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katiepurdy/portfolio.git"
+  },
+  "author": "Katie Purdy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katiepurdy/portfolio/issues"
+  },
+  "homepage": "https://github.com/katiepurdy/portfolio#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "material-icons": "^0.3.1"
+  }
+}

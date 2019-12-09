@@ -5,8 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Katie Purdy | Web Development Portfolio</title>
+    <link rel="stylesheet" href="node_modules/material-icons/css/material-icons.min.css">
+    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/logo-github.svg" />
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    
+    <header>
+        <a href="index.html">
+            <h1>katiepurdy.me</h1>
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Hey there!<br>I'm Katie Purdy.</h1>
+        <p class="intro">I'm a Halifax-based web developer.<br>Check out some of my work below and please get in touch!</p>
+    </section>
+
+    <section class="featured-projects" id="projects">
+        <h1 class="section-title">My Featured Projects</h1>
+        <div class="card">
+            <div class="portfolio-item">
+                <img src="images/projects/yarns-db.png" alt="Project displayed in a web browser on a computer monitor">
+                <time>December 2019</time>
+                <h2 class="project-title">My Yarns Database</h2>
+                <p class="project-description"></p>
+                <div class="technologies-used">
+                    <ul>
+                        <li>MongoDB</li>
+                        <li>Express</li>
+                        <li>React</li>
+                        <li>Bootstrap</li>
+                        <li>Heroku</li>
+                    </ul>
+                </div>
+                <div class="project-buttons">
+                    <a href="https://w0271212.herokuapp.com/">Live Project<span class="mi mi-open-in-new button-icon"></span></a>
+                    <a href="">View on GitHub<span class="button-icon"><img src="logo-github.svg" alt="GitHub logo"></span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h1 class="section-title">Some Technologies I'm Familiar With</h1>
+    </section>
+
+    <footer>
+        <p>
+            <small>Built with &hearts; by Katie Purdy</small>
+        </p>
+        <nav class="social-nav">
+            <ul>
+                <li><a href="https://github.com/katiepurdy"></a></li>
+                <li><a href="https://www.linkedin.com/in/katiepurdy/"></a></li>
+            </ul>
+        </nav>
+    </footer>
 </body>
 </html>
