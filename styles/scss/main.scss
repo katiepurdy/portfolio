@@ -34,24 +34,14 @@ $border-thickness: 4px;
 
 $transition-duration: 0.3s;
 
-$max-width: 1000px;
+$max-width-medium: 98%;
+$max-width-large: 1200%;
+$max-width-x-large: 1400px;
 
 $breakpoint-small: 575px;
 $breakpoint-medium: 768px;
-$breakpoint-large: 992px;
-$breakpoint-x-large: 1400px;
-
-// =========================================
-//  MIXINS
-// =========================================
-
-// Center containers
-@mixin center {
-  width: 90%;
-  max-width: $max-width;
-  margin-left: auto;
-  margin-right: auto;
-}
+$breakpoint-large: 1200px;
+$breakpoint-x-large: 1600px;
 
 // =========================================
 //  FUNCTIONS
@@ -257,6 +247,11 @@ main {
   flex: 1;
 }
 
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 .inner {
   padding: 0 36px;
 }
@@ -268,7 +263,7 @@ main {
 .tagline,
 .main-title {
   font-size: 36px;
-  font-weight: $font-weight-heading;
+  font-weight: 700;
   margin: 36px 0 36px 0;
 }
 
@@ -321,10 +316,17 @@ section.skills .card{
   padding-bottom: 40px;
   box-shadow: $box-shadow;
   margin-bottom: 48px;
+  margin-left: auto;
+  margin-right: auto;
   .portfolio-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    .portfolio-item-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .monitor {
       width: 212px;
     }
@@ -487,7 +489,7 @@ section.skills .card{
     width: 100%;
     background-color: $color-secondary;
     color: $white;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: $font-weight-heading;
     padding: 16px;
     border: 0;
@@ -513,6 +515,20 @@ section.skills .card{
 // =========================================
 
 @media (min-width: $breakpoint-medium) {
+  .card {
+    border-radius: $border-radius;
+    &.inner {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+  .container {
+    margin: 0 auto;
+  }
+  .inner,
+  .card.technologies {
+    padding: 0 72px; 
+  }
   .menu-toggle {
     display: none;
   }
@@ -539,10 +555,64 @@ section.skills .card{
         }
         a {
           font-size: 20px;
+          padding-bottom: 2px;
           margin: 0;
+          &.active {
+            border-color: rgba(52, 29, 130, 0.5);
+          }
         }
       }
     }
+  }
+  .card {
+    .portfolio-item {
+      .technologies-used {
+        max-width: 420px;
+        ul {
+          li {
+            padding: 2px 8px;
+            font-size: 14px;
+          }
+        }
+      }
+      .project-buttons {
+        display: flex;
+        justify-content: flex-start;
+        align-content: center;
+      }
+    }
+  }
+  .section-title {
+    font-size: 36px;
+  }
+  .skills .card {
+    padding-top: 72px;
+    padding-bottom: 72px; 
+  }
+  .hero {
+    .inner {
+      margin-top: 100px;
+      display: flex;
+      flex-direction: column;
+      .text {
+        flex: 3;
+      }
+      .tagline {
+        font-size: 48px;
+      }
+      .intro {
+        font-size: 26px;
+      }
+      .img-featured {
+        flex: 1;
+        margin: 48px auto 0 auto;
+        max-width: 70%;
+      }
+    }
+  }
+  .technologies {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 48px;
   }
   .contact {
     .main-title{
@@ -554,9 +624,10 @@ section.skills .card{
       padding-top: 100px;
       display: flex;
       flex-direction: row;
+      justify-content:space-between;
     }
     .contact-form-wrapper {
-      max-width: 50%;
+      max-width: 576px;
       flex: 1;
     }
     label {
@@ -569,7 +640,7 @@ section.skills .card{
       align-self: baseline;
       flex: 1;
       margin: 12px 0 0 0;
-      max-width: 50%;
+      max-width: 576px;
     }
     .img-bubbles {
       width: 100%;
@@ -593,16 +664,213 @@ section.skills .card{
 }
 
 @media (min-width: $breakpoint-large) {
-  .main-content {
-    @include center;
+  .card {
+    &.inner {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+  }
+  .container {
+    padding: 0 140px;
+  }
+  .inner {
+    padding: 0 100px; 
+  }
+  header {
+    .logo {
+      font-size: 36px;
+    }
+    &.menu-closed {
+      .main-nav {
+        a {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+  .hero {
+    .inner {
+      margin-top: 100px;
+      display: flex;
+      flex-direction: row;
+      .text {
+        flex: 1;
+      }
+      .tagline {
+        font-size: 48px;
+      }
+      .intro {
+        font-size: 30px;
+      }
+      .img-featured {
+        flex: 1;
+        margin-left: 48px;
+        margin-top: 330px;
+      }
+    }
+  }
+  .section-title {
+    text-align: center;
+    margin: 260px 16px 80px 16px;
+    font-size: 48px;
+    font-weight: $font-weight-heading;
+  }
+  .img-technologies {
+    max-width: 700px;
+    display: block;
+    margin: 0 auto 230px auto;
+  }
+  .card {
+    background-color: $white;
+    color: $color-text-medium;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-shadow: $box-shadow;
+    margin-bottom: 200px;
+    max-width: 1400px;
+    .portfolio-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .portfolio-item-image {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 90px;
+        width: 40%;
+      }
+      .portfolio-item-details {
+        flex: 2;
+      }
+      .monitor {
+        width: 100%;
+      }
+      .time {
+        font-size: 18px;
+        font-weight: bold;
+        color: $color-text-dark;
+        margin-top: 38px;
+      }
+      .project-title {
+        font-size: 60px;
+        margin: 16px 0 8px 0;
+      }
+      .project-description {
+        font-size: 24px;
+      }  
+      .project-buttons {
+        display: flex;
+        justify-content: flex-start;
+        align-content: center;
+        a {
+          width: 170px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          &:first-of-type {
+            margin-right: 12px;
+          }
+        }
+      }
+    }
+  }
+  .technologies {
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 120px;
+  }
+  section {
+    &.skills .card {
+      padding-top: 120px;
+      padding-bottom: 120px;
+      margin-bottom: 120px;
+    }
+  }
+  .contact {
+    &.inner {
+      padding-top: 100px;
+    }
+    .main-title{
+      font-size: 60px;
+    }
+  }
+  footer {
+    justify-content: space-between;
+    p {
+      font-size: 18px;
+    }
+    .social-nav {
+      li {
+        margin: 24px 0 24px 16px;
+      }
+    }
   }
 }
 
 @media (min-width: $breakpoint-x-large) {
-  header {
-    background-position: 0 0, 0 45%;
+  .inner {
+    padding: 0 148px; 
   }
-  .intro {
-    width: 45%;
+  header {
+    .logo {
+      font-size: 36px;;
+    }
+    &.menu-closed {
+      .main-nav {
+        a {
+          font-size: 32px;
+        }
+      }
+    }
+  }
+  .hero {
+    .inner {
+      .tagline {
+        font-size: 72px;
+      }
+      p.intro {
+        font-size: 36px;
+      }
+    }
+  }
+  section {
+    &.skills .card {
+      margin-bottom: 230px;
+    }
+  }
+  .contact {
+    .main-title{
+      font-size: 72px;
+      margin-top: 0;
+      text-align: left;
+    }
+    &.inner {
+      padding-top: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    label {
+      font-size: 36px;
+      display: none;
+    }
+    input[type="submit"] {
+      font-size: 22px;
+    }
+    .img-messages {
+      align-self: center;
+    }
+  }
+  footer {
+    justify-content: space-between;
+    p {
+      font-size: 24px;
+    }
+    .social-nav {
+      li {
+        margin: 40px 0 40px 16px;
+      }
+    }
   }
 }
