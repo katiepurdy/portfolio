@@ -30,6 +30,8 @@ $box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
 $drop-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
 
 $border-radius: 5px;
+$border-thickness: 4px;
+
 $transition-duration: 0.3s;
 
 $max-width: 1000px;
@@ -193,12 +195,16 @@ header {
       font-size: 18px;
       font-weight: $font-weight-heading;
       text-decoration: none;
-      padding: 16px 0;
+      padding: 4px 0;
+      margin: 10px 0;
+      display: inline-block;
       transition: $transition-duration;
-      display: block;
-      width: 100%;
+      border-bottom: $border-thickness solid transparent;
+      &.active {
+        border-bottom: $border-thickness solid rgba(255,255,255, 0.5);
+      }
       &:hover {
-        text-decoration: underline;  
+        border-bottom: $border-thickness solid rgba(255,255,255, 1);
       }
     }
   }
@@ -239,6 +245,18 @@ footer {
 //  CONTAINERS
 // =========================================
 
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .inner {
   padding: 0 36px;
 }
@@ -247,8 +265,10 @@ footer {
 //  OTHER COMPONENTS
 // =========================================
 
-.tagline {
+.tagline,
+.main-title {
   font-size: 36px;
+  font-weight: $font-weight-heading;
   margin: 36px 0 36px 0;
 }
 
@@ -308,7 +328,7 @@ section.skills .card{
     .monitor {
       width: 212px;
     }
-    time {
+    .time {
       font-size: 14px;
       font-weight: bold;
       color: $color-text-dark;
@@ -418,17 +438,157 @@ section.skills .card{
   }
 }
 
+.contact {
+  &.inner {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .main-title {
+    text-align: center;
+  }
+  label,
+  input {
+    display: block;
+  }
+  label {
+    font-size: 20px;
+    display: none;
+  }
+  label[for="message"] {
+    display: block;
+    margin-top: 32px;
+  }
+  input:not([type="submit"]),
+  textarea {
+    border: none;
+    border-bottom: $border-thickness solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    width: 100%;
+    font-size: 20px;
+    color: $white;
+    padding: 10px 0;
+    margin-top: 16px;
+    outline: none;
+    &::placeholder { 
+      color: $white;
+      opacity: 1;
+    }
+  }
+  input:not([type="submit"]):focus {
+    padding: 10px;
+  }
+  textarea {
+    border: $border-thickness solid rgba(255, 255, 255, 0.5);
+    min-height: 128px;
+    padding: 10px;
+  }
+  input[type="submit"] {
+    width: 100%;
+    background-color: $color-secondary;
+    color: $white;
+    font-size: 16px;
+    font-weight: $font-weight-heading;
+    padding: 16px;
+    border: 0;
+    border-radius: $border-radius;
+    margin: 40px 0 54px 0;
+    box-shadow: $box-shadow;
+    transition: $transition-duration;
+    &:hover {
+      background-color: $white;
+      color: $color-primary;
+      cursor: pointer;
+    }
+  }
+  .img-messages {
+    align-self: center;
+    margin-bottom: 40px;
+    filter: drop-shadow($drop-shadow);
+  }
+}
+
 // =========================================
 //  MEDIA QUERIES
 // =========================================
 
 @media (min-width: $breakpoint-medium) {
-  .main-content {
-    display: flex;
-    flex-wrap: wrap;
-  }  
-  .card {
-    flex: 1;
+  .menu-toggle {
+    display: none;
+  }
+  header {
+    .logo {
+      font-size: 28px;
+      margin: 0;
+    }
+    .inner {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &.menu-closed {
+      .main-nav {
+        width: 50%;
+        display: block;
+        ul {
+          flex-direction: row;
+          height: auto;
+        }
+        li {
+          width: auto;
+        }
+        a {
+          font-size: 20px;
+          margin: 0;
+        }
+      }
+    }
+  }
+  .contact {
+    .main-title{
+      font-size: 48px;
+      margin-top: 0;
+      text-align: left;
+    }
+    &.inner {
+      padding-top: 100px;
+      display: flex;
+      flex-direction: row;
+    }
+    .contact-form-wrapper {
+      max-width: 50%;
+      flex: 1;
+    }
+    label {
+      font-size: 22px;
+      display: none;
+    }
+    .img-messages {
+      display: flex;
+      justify-content: center;
+      align-self: baseline;
+      flex: 1;
+      margin: 12px 0 0 0;
+      max-width: 50%;
+    }
+    .img-bubbles {
+      width: 100%;
+      margin-left: 60px;
+    }
+    input[type="submit"] {
+      width: 220px;
+    }
+  }
+  footer {
+    justify-content: center;
+    p {
+      font-size: 16px;
+    }
+    .social-nav {
+      li {
+        margin: 24px 0 24px 16px;
+      }
+    }
   }
 }
 

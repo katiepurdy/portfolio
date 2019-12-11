@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Katie Purdy | Web Development Portfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/css/main.css">
+</head>
+<body>
+    <header class="menu-closed" id="header">
+        <div class="inner">
+            <p class="logo">katiepurdy.me</p>
+            <span class="menu-toggle" id="menu-toggle"></span>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" preserveaspectratio="none">
+            <polygon fill="white" points="0,100 100,0 100,100" />
+        </svg>
+    </header>
+    <main>
+        <section class="contact inner">
+            <div class="contact-form-wrapper">
+                <h1 class="main-title">Contact Me! &#58;&#41;</h1>
+                <form>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Name">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <label for="message">Write me a message!</label>
+                    <textarea name="message" id="message"></textarea>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div class="img-messages">
+                <img src="images/message-bubbles.svg" alt="Chat bubbles" class="img-bubbles">
+            </div>
+        </section>
+    </main>
+    <footer class="inner">
+        <p>Built with &hearts; by Katie Purdy</p>
+        <nav class="social-nav">
+            <ul>
+                <li><a href="https://github.com/katiepurdy" target="_blank"><img src="images/icons/github-light.svg" class="img-icon" alt="LinkedIn logo"></a></li>
+                <li><a href="https://www.linkedin.com/in/katiepurdy/" target="_blank"><img src="images/icons/linkedin.svg" class="img-icon" alt="GitHub logo"></a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
